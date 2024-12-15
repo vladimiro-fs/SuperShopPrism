@@ -1,11 +1,10 @@
-﻿using Foundation;
-using Prism;
-using Prism.Ioc;
-using UIKit;
-
-
-namespace SuperShopPrism.iOS
+﻿namespace SuperShopPrism.iOS
 {
+    using Foundation;
+    using Prism;
+    using Prism.Ioc;
+    using UIKit;
+
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
@@ -22,6 +21,7 @@ namespace SuperShopPrism.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);

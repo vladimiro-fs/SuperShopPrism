@@ -1,9 +1,9 @@
-using System;
-using Android.App;
-using Android.Runtime;
-
 namespace SuperShopPrism.Droid
 {
+    using System;
+    using Android.App;
+    using Android.Runtime;
+
     [Application(
         Theme = "@style/MainTheme"
         )]

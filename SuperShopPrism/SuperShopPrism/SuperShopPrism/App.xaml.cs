@@ -1,13 +1,14 @@
-using Prism;
-using Prism.Ioc;
-using SuperShopPrism.ViewModels;
-using SuperShopPrism.Views;
-using Xamarin.Essentials.Implementation;
-using Xamarin.Essentials.Interfaces;
-using Xamarin.Forms;
-
 namespace SuperShopPrism
 {
+    using Prism;
+    using Prism.Ioc;
+    using SuperShopPrism.Services;
+    using SuperShopPrism.ViewModels;
+    using SuperShopPrism.Views;
+    using Xamarin.Essentials.Implementation;
+    using Xamarin.Essentials.Interfaces;
+    using Xamarin.Forms;
+
     public partial class App
     {
         public App(IPlatformInitializer initializer)
@@ -19,15 +20,19 @@ namespace SuperShopPrism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/ProductsPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
+            containerRegistry.Register<IApiService, ApiService>();
+
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<ProductsPage, ProductsPageViewModel>();
+            containerRegistry.RegisterForNavigation<ProductsPage, ProductsPageViewModel>();
         }
     }
 }

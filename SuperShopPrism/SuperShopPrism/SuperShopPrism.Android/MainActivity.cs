@@ -1,11 +1,11 @@
-﻿using Android.App;
-using Android.Content.PM;
-using Android.OS;
-using Prism;
-using Prism.Ioc;
-
-namespace SuperShopPrism.Droid
+﻿namespace SuperShopPrism.Droid
 {
+    using Android.App;
+    using Android.Content.PM;
+    using Android.OS;
+    using Prism;
+    using Prism.Ioc;
+
     [Activity(Theme = "@style/MainTheme",
               ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -15,6 +15,7 @@ namespace SuperShopPrism.Droid
             base.OnCreate(savedInstanceState);
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             LoadApplication(new App(new AndroidInitializer()));
         }
 
