@@ -22,17 +22,6 @@
 
         public UserResponse User { get; set; }
 
-        public string ImageFullPath
-        {
-            get
-            {
-                if (ImageId is Guid id && id != Guid.Empty)
-                {
-                    return $"https://localhost:44345/products/{id}.jpg";
-                }
-
-                return "https://localhost:44345/images/noimage.png";
-            }
-        }
+        public string ImageFullPath { get; set; }
     }
 }
