@@ -10,7 +10,8 @@
         private bool _isEnabled;
         private DelegateCommand _loginCommand;
 
-        public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
+        public LoginPageViewModel(
+            INavigationService navigationService) : base(navigationService)
         {
             Title = "Login";
             IsEnabled = true;

@@ -19,24 +19,27 @@ namespace SuperShopPrism
 
         protected override async void OnInitialized()
         {
-            SyncfusionLicenseProvider.RegisterLicense("MzYyNzM1M0AzMjM4MmUzMDJlMzBhUUpDYVFNUTQrSjNFbVlwMDRJU0NzUnF5VjZZcUJoY2tFSEJnSnFhL2JBPQ ==");
+            SyncfusionLicenseProvider.RegisterLicense
+                ("MzYyNzM1M0AzMjM4MmUzMDJlMzBhUUpDYVFNUTQrSjNFbVlwMDRJU0NzUnF5VjZZcUJoY2tFSEJnSnFhL2JBPQ ==");
 
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/ProductsPage");
+            await NavigationService.NavigateAsync
+                ($"/{nameof(SuperShopMasterDetailPage)}/NavigationPage/{nameof(ProductsPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
-
             containerRegistry.Register<IApiService, ApiService>();
-
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
-            containerRegistry.RegisterForNavigation<ProductsPage, ProductsPageViewModel>();
+            containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
             containerRegistry.RegisterForNavigation<ProductsPage, ProductsPageViewModel>();
             containerRegistry.RegisterForNavigation<ProductDetailPage, ProductDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<ShowCartPage, ShowCartPageViewModel>();
+            containerRegistry.RegisterForNavigation<ShowHistoryPage, ShowHistoryPageViewModel>();
+            containerRegistry.RegisterForNavigation<SuperShopMasterDetailPage, SuperShopMasterDetailPageViewModel>();
         }
     }
 }

@@ -33,6 +33,10 @@
 
         public static string Loading => Resource.Loading;
 
+        public static string Login => Resource.Login;
+
+        public static string ModifyUser => Resource.ModifyUser;
+
         public static string Name => Resource.Name;
 
         public static string Price => Resource.Price;
@@ -42,6 +46,10 @@
         public static string Products => Resource.Products;
 
         public static string SearchProduct => Resource.SearchProduct;
+
+        public static string ShowPurchaseHistory => Resource.ShowPurchaseHistory;
+
+        public static string ShowShoppingCart => Resource.ShowShoppingCart;
 
         public static string Stock => Resource.Stock;
     }

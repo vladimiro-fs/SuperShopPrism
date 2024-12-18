@@ -1,17 +1,15 @@
 ﻿namespace SuperShopPrism.ViewModels
 {
-    using Prism.Commands;
     using Prism.Navigation;
     using SuperShopPrism.Models;
 
     public class ProductDetailPageViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
         private ProductResponse _product;
 
-        public ProductDetailPageViewModel(INavigationService navigationService) : base(navigationService)
+        public ProductDetailPageViewModel(
+            INavigationService navigationService) : base(navigationService)
         {
-            _navigationService = navigationService;
         }
 
         public ProductResponse Product 
