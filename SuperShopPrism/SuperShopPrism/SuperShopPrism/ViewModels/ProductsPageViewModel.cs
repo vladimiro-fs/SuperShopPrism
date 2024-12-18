@@ -5,6 +5,7 @@
     using System.Linq;
     using Prism.Commands;
     using Prism.Navigation;
+    using SuperShopPrism.Helpers;
     using SuperShopPrism.ItemViewModels;
     using SuperShopPrism.Models;
     using SuperShopPrism.Services;
@@ -27,7 +28,7 @@
         {
             _navigationService = navigationService;
             _apiService = apiService;
-            Title = "Products Page";
+            Title = Languages.Products;
             LoadProductsAsync();
         }
 
@@ -64,9 +65,9 @@
                 Device.BeginInvokeOnMainThread(async () => 
                 {
                     await App.Current.MainPage.DisplayAlert(
-                        "Error", 
-                        "Check internet connection", 
-                        "OK");
+                        Languages.Error, 
+                        Languages.ConnectionError, 
+                        Languages.Accept);
                 });
 
                 return;
@@ -82,7 +83,10 @@
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert("Error", response.Message, "OK");
+                await App.Current.MainPage.DisplayAlert(
+                    Languages.Error, 
+                    response.Message, 
+                    Languages.Accept);
                 return;
             }
 
